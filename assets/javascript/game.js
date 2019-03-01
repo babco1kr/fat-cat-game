@@ -19,41 +19,50 @@ function setup () {
     crystalThree();
     crystalFour();
 
+    console.log(crystalOneValue);
+    console.log(crystalTwoValue);
+    console.log(crystalThreeValue);
+    console.log(crystalFourValue);
 }
 
 $("#crystalOne").on("click", function () {
     userScore += crystalOneValue;
+    check(userScore);
     $("#userNumber").text(userScore);
     return userScore;
 });
 
 $("#crystalTwo").on("click", function () {
     userScore += crystalTwoValue;
+    check(userScore);
     $("#userNumber").text(userScore);
     return userScore;
 });
 
 $("#crystalThree").on("click", function () {
     userScore += crystalThreeValue;
+    check(userScore);
     $("#userNumber").text(userScore);
     return userScore;
 });
 
 $("#crystalFour").on("click", function () {
     userScore += crystalFourValue;
+    check(userScore);
     $("#userNumber").text(userScore);
     return userScore;
 });
 
 function randomComputerGuess () {
-    computerNumber = Math.floor(Math.random()*151);
+    var min = 19;
+    var max = 120;
+    computerNumber = Math.floor(Math.random() * (+max - +min)) + +min; 
     $("#numberToMatch").text(computerNumber);
-    console.log(computerNumber);
 }
 
 
 function random () {
-    randomNumber = Math.floor(Math.random()*25);
+    randomNumber = Math.floor(Math.random()*((12-1)) + 1);
     return randomNumber;
 }
 
@@ -85,4 +94,15 @@ function crystalFour () {
     random();
     crystalFourValue = randomNumber;
     return crystalFourValue;
+}
+
+function check (x) {
+    if (x === computerNumber) {
+        alert("You win!");
+        setup();
+    }
+    else if (x > computerNumber) {
+        alert("You lose");
+        setup();
+    }
 }
