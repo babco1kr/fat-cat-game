@@ -28,6 +28,7 @@ function setup () {
 
 $("#crystalOne").on("click", function () {
     userScore += crystalOneValue;
+    $("#winOrLose").text("");
     check(userScore);
     $("#userNumber").text(userScore);
     return userScore;
@@ -35,6 +36,7 @@ $("#crystalOne").on("click", function () {
 
 $("#crystalTwo").on("click", function () {
     userScore += crystalTwoValue;
+    $("#winOrLose").text("");
     check(userScore);
     $("#userNumber").text(userScore);
     return userScore;
@@ -42,6 +44,7 @@ $("#crystalTwo").on("click", function () {
 
 $("#crystalThree").on("click", function () {
     userScore += crystalThreeValue;
+    $("#winOrLose").text("");
     check(userScore);
     $("#userNumber").text(userScore);
     return userScore;
@@ -49,6 +52,7 @@ $("#crystalThree").on("click", function () {
 
 $("#crystalFour").on("click", function () {
     userScore += crystalFourValue;
+    $("#winOrLose").text("");
     check(userScore);
     $("#userNumber").text(userScore);
     return userScore;
@@ -99,13 +103,13 @@ function crystalFour () {
 
 function check (x) {
     if (x === computerNumber) {
-        $("#win").text("You Win!");
+        $("#winOrLose").text("You Win!");
         winCount++;
-        $("#winCount").text(winCount);
+        $("#winCount").text("Wins: " + winCount);
         setup();
     }
     else if (x > computerNumber) {
-        alert("You lose");
+        $("#winOrLose").text("You Lose, Try Again!");
         setup();
     }
 }
