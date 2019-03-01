@@ -99,8 +99,9 @@ function crystalFour () {
 
 function check (x) {
     if (x === computerNumber) {
-        alert("You win!");
-        win++;
+        $("#win").text("You Win!");
+        winCount++;
+        $("#winCount").text(winCount);
         setup();
     }
     else if (x > computerNumber) {
