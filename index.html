@@ -6,17 +6,32 @@
     <title>Crystal Game</title>
     <!-- Link to css reset sheet -->
     <link rel="stylesheet" type="text/css" href ="assets/css/reset.css">
+    <!-- Link to bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Link to own css style sheet -->
     <link rel="stylesheet" type="text/css" href ="assets/css/style.css">
     <!-- Link to jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 </head>
 
 <body>
+    <div class ="container">
+    <div class = "row-md">
     <h1>Crystal Game</h1><br>
-    <div>
-    Game Numer: <span id = "numberToMatch"></span><br><br>
-    User Number: <span id = "userNumber"></span>
+    </div>
+    <div class = "row-md">
+        <p>
+            Click on the items to add value to your number. Each item has a random value. You must match the computers number or you lose!
+        </p>
+    </div>
+    <div class = "row">
+        <div class ="col-md-6">
+            <h2>Computer's Number: <span id = "numberToMatch"></span></h2>
+        </div>
+        <div class = "col-md-6">
+            <h2>User Total: <span id = "userNumber"></span></h2>
+        </div>
+    </div>
     </div>
     <br>
     <br>
@@ -25,7 +40,13 @@
     <h3 id = "crystalThree">Crystal Three</h3>
     <h3 id = "crystalFour">Crystal Four</h3>
 
-<!-- Link to javascript file -->
-<script src="assets/javascript/game.js"></script>
+
+    <!-- Bootstrap jquery linked here -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!-- Bootstrap javascript linked here -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Link to javascript file -->
+    <script src="assets/javascript/game.js"></script>
 </body>
 </html>

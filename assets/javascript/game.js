@@ -6,6 +6,7 @@ var crystalOneValue;
 var crystalTwoValue;
 var crystalThreeValue;
 var crystalFourValue;
+var winCount = 0;
 
 $(document).ready(function () {
     setup();
@@ -99,6 +100,7 @@ function crystalFour () {
 function check (x) {
     if (x === computerNumber) {
         alert("You win!");
+        win++;
         setup();
     }
     else if (x > computerNumber) {
