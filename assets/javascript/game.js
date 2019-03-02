@@ -1,115 +1,61 @@
 // Variables declared for use in functions
 var computerNumber;
 var randomNumber;
-var userScore;
-var crystalOneValue;
-var crystalTwoValue;
-var crystalThreeValue;
-var crystalFourValue;
+var userScore = 0;
 var winCount = 0;
+var imageWeapon;
+var imageArray = ["assets/images/sword.png", "assets/images/stick.png", "assets/images/bow.png", "assets/images/pan.png"];
 
 $(document).ready(function () {
-    setup();
-});
 
-function setup () {
-    userScore = 0;
+    for (i = 0; i < imageArray.length; i++){
+        imageWeapon = $("<img>");
+        imageWeapon.addClass("img-thumbnail weapon-image");
+        imageWeapon.addClass("weaponImage" + [i]);
+        randomNumber = Math.floor((Math.random()*11) + 1);
+        imageWeapon.attr({"src":imageArray[i], "weaponValueNum":randomNumber});
+        $(".weapons"+[i]).append(imageWeapon);
+    }
     randomComputerGuess();
-    crystalOne();
-    crystalTwo();
-    crystalThree();
-    crystalFour();
 
-    console.log(crystalOneValue);
-    console.log(crystalTwoValue);
-    console.log(crystalThreeValue);
-    console.log(crystalFourValue);
-}
+    $(".weapon-image").on("click", function () {
+        $("#winOrLose").text("");
+        var weaponValue = ($(this).attr("weaponValueNum"));
+        weaponValue = parseInt(weaponValue);
+        userScore += weaponValue;
+        $("#userNumber").text(userScore);
+        check(userScore);
 
-$("#crystalOne").on("click", function () {
-    userScore += crystalOneValue;
-    $("#winOrLose").text("");
-    check(userScore);
-    $("#userNumber").text(userScore);
-    return userScore;
-});
+    })
 
-$("#crystalTwo").on("click", function () {
-    userScore += crystalTwoValue;
-    $("#winOrLose").text("");
-    check(userScore);
-    $("#userNumber").text(userScore);
-    return userScore;
-});
-
-$("#crystalThree").on("click", function () {
-    userScore += crystalThreeValue;
-    $("#winOrLose").text("");
-    check(userScore);
-    $("#userNumber").text(userScore);
-    return userScore;
-});
-
-$("#crystalFour").on("click", function () {
-    userScore += crystalFourValue;
-    $("#winOrLose").text("");
-    check(userScore);
-    $("#userNumber").text(userScore);
-    return userScore;
-});
-
-function randomComputerGuess () {
-    var min = 19;
-    var max = 120;
-    computerNumber = Math.floor(Math.random() * (+max - +min)) + +min; 
-    $("#numberToMatch").text(computerNumber);
-}
-
-
-function random () {
-    randomNumber = Math.floor(Math.random()*((12-1)) + 1);
-    return randomNumber;
-}
-
-// function addingScore (x) {
-//     userScore += x;
-//     $("#userNumber").text(userScore);
-//     return userScore;
-// }
-
-function crystalOne () {
-    random();
-    crystalOneValue = randomNumber;
-    return crystalOneValue;
-}
-
-function crystalTwo () {
-    random();
-    crystalTwoValue = randomNumber;
-    return crystalTwoValue;
-}
-
-function crystalThree () {
-    random();
-    crystalThreeValue = randomNumber;
-    return crystalThreeValue;
-}
-
-function crystalFour () {
-    random();
-    crystalFourValue = randomNumber;
-    return crystalFourValue;
-}
-
-function check (x) {
-    if (x === computerNumber) {
-        $("#winOrLose").text("You Win!");
-        winCount++;
-        $("#winCount").text("Wins: " + winCount);
-        setup();
+    function reset () {
+        for (i = 0; i < imageArray.length; i++) {
+            randomNumber = Math.floor((Math.random()*11) + 1);
+            $(".weaponImage"+[i]).attr("weaponValueNum", randomNumber);
+        }
+        userScore = 0;
+        $("#userNumber").text(userScore);
+        randomComputerGuess();
     }
-    else if (x > computerNumber) {
-        $("#winOrLose").text("You Lose, Try Again!");
-        setup();
+
+    function check (x) {
+        if (x === computerNumber) {
+            $("#winOrLose").text("You Win!");
+            winCount++;
+            $("#winCount").text("Wins: " + winCount);
+            reset();
+        }
+        else if (x > computerNumber) {
+            $("#winOrLose").text("You Lose, Try Again!");
+            reset();
+        }
     }
-}
+
+    function randomComputerGuess () {
+        var min = 19;
+        var max = 120;
+        computerNumber = Math.floor(Math.random() * (+max - +min)) + +min; 
+        $("#numberToMatch").text(computerNumber);
+    }
+
+});
