@@ -4,7 +4,7 @@ var randomNumber;
 var userScore = 0;
 var winCount = 0;
 var imageWeapon;
-var imageArray = ["assets/images/sword.png", "assets/images/stick.png", "assets/images/bow.png", "assets/images/pan.png"];
+var imageArray = ["assets/images/pizza.png", "assets/images/burger.png", "assets/images/fries.png", "assets/images/icecream.png"];
 
 $(document).ready(function () {
 
@@ -23,11 +23,12 @@ $(document).ready(function () {
         var weaponValue = ($(this).attr("weaponValueNum"));
         weaponValue = parseInt(weaponValue);
         userScore += weaponValue;
-        $("#userNumber").text(userScore);
+        $("#userNumber").text(userScore + "lbs");
         check(userScore);
 
     })
 
+    // function resets the value of images
     function reset () {
         for (i = 0; i < imageArray.length; i++) {
             randomNumber = Math.floor((Math.random()*11) + 1);
@@ -55,7 +56,7 @@ $(document).ready(function () {
         var min = 19;
         var max = 120;
         computerNumber = Math.floor(Math.random() * (+max - +min)) + +min; 
-        $("#numberToMatch").text(computerNumber);
+        $("#numberToMatch").text(computerNumber + "lbs");
     }
 
 });

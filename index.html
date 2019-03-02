@@ -15,32 +15,36 @@
 </head>
 
 <body>
+    <header>
+    <h1 class = "text-center game-title">Feed The Fat Cat!</h1><br>
+    </header>
     <div class ="container">
-    <div class = "row-md">
-    <h1 class = "text-center">Crystal Game</h1><br>
-    </div>
-    <div class = "row-md text-center">
-        <p>
-            Click on the items to add value to your number. Each item has a random value. You must match the computers number or you lose!
-        </p>
-    </div>
     <div class = "row-md">
         <div class = "col-md-12">
             <h1 class = "text-center"><span id = "winOrLose"></span></h1>
         </div>
     </div>
-    <div class = "row-md">
-        <div class = "col-md-12">
+    <div class = "row">
+        <div class ="col-sm-4 text-center">
+            <h2>Hunger Level: <span id = "numberToMatch"></span></h2>
+        </div>
+        <div class = "col-sm-4">
             <h2 class = "text-center"><span id = "winCount"></span></h2>
         </div>
+        <div class = "col-sm-4 text-center">
+            <h2>Amount Fed: <span id = "userNumber"></span></h2>
+        </div>
     </div>
-    <div class = "row">
-        <div class ="col-md-6 text-center">
-            <h2>Computer's Number: <span id = "numberToMatch"></span></h2>
+    <div class = row-md>
+        <div class = "col-sm text-center">
+            <img class = "img-thumbnail catimage" src="assets/images/fat cat.png" alt = "A fat cat">
         </div>
-        <div class = "col-md-6 text-center">
-            <h2>User Total: <span id = "userNumber"></span></h2>
-        </div>
+    </div>
+    <div class = "row-md text-center">
+        <p class = "instructions">
+            The Fat Cat is hungry.<br> You must feed the cat to fulfill his exact level of hunger! Click each item and see how much it feeds the Fat Cat. Don't overfill him or 
+            you lose!
+        </p>
     </div>
     <div class = "row">
         <div class = "col-sm-3 weapons0"></div>

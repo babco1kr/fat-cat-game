@@ -1,3 +1,27 @@
 .img-thumbnail {
     border: 0;
 }
+
+.game-title {
+    color: #ffffff;
+}
+
+header {
+    background-color: #4aaaaf;
+}
+
+body {
+    background-image: url(../images/dust_scratches.png);
+}
+.img-thumbnail {
+    background-image: url(../images/dust_scratches.png);
+}
+
+.instructions {
+    font-size: 24px;
+    color: #4aaaaf;
+}
+
+h1, h2, h3 {
+    color: #4aaaaf;
+}
