@@ -3,6 +3,7 @@ var computerNumber;
 var randomNumber;
 var userScore = 0;
 var winCount = 0;
+var loseCount = 0;
 var imageWeapon;
 var imageArray = ["assets/images/pizza.png", "assets/images/burger.png", "assets/images/fries.png", "assets/images/icecream.png"];
 
@@ -10,10 +11,10 @@ $(document).ready(function () {
 
     for (i = 0; i < imageArray.length; i++){
         imageWeapon = $("<img>");
-        imageWeapon.addClass("img-thumbnail weapon-image");
+        imageWeapon.addClass("weapon-image img-thumbnail");
         imageWeapon.addClass("weaponImage" + [i]);
         randomNumber = Math.floor((Math.random()*11) + 1);
-        imageWeapon.attr({"src":imageArray[i], "weaponValueNum":randomNumber});
+        imageWeapon.attr({"src":imageArray[i], "weaponValueNum":randomNumber, height: "190px", width: "190px" });
         $(".weapons"+[i]).append(imageWeapon);
     }
     randomComputerGuess();
@@ -24,9 +25,11 @@ $(document).ready(function () {
         weaponValue = parseInt(weaponValue);
         userScore += weaponValue;
         $("#userNumber").text(userScore + "lbs");
+        $(this).animate({opacity: "0.4"}, "fast");
+        $(this).animate({opacity: "1"}, "fast");
         check(userScore);
 
-    })
+    });
 
     // function resets the value of images
     function reset () {
@@ -48,6 +51,8 @@ $(document).ready(function () {
         }
         else if (x > computerNumber) {
             $("#winOrLose").text("You Lose, Try Again!");
+            loseCount++;
+            $("#loseCount").text("Loses: " + loseCount);
             reset();
         }
     }
