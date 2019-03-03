@@ -27,6 +27,8 @@ $(document).ready(function () {
         $("#userNumber").text(userScore + "lbs");
         $(this).animate({opacity: "0.4"}, "fast");
         $(this).animate({opacity: "1"}, "fast");
+        $("#catimage").animate({height: "+=25px", width: "+=25px"}, "fast");
+        $("#catimage").animate({height: "-=25px", width: "-=25px"}, "fast");
         check(userScore);
 
     });
