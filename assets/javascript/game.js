@@ -9,6 +9,7 @@ var imageArray = ["assets/images/pizza.png", "assets/images/burger.png", "assets
 
 $(document).ready(function () {
 
+    // Start of the game that puts images on screen and assigns them their number value
     for (i = 0; i < imageArray.length; i++){
         imageWeapon = $("<img>");
         imageWeapon.addClass("weapon-image img-thumbnail");
@@ -19,6 +20,7 @@ $(document).ready(function () {
     }
     randomComputerGuess();
 
+    // Adds number of picture clicked to user score and animates image on click
     $(".weapon-image").on("click", function () {
         $("#winOrLose").text("");
         var weaponValue = ($(this).attr("weaponValueNum"));
@@ -44,6 +46,7 @@ $(document).ready(function () {
         randomComputerGuess();
     }
 
+    // Checks if the user has matched the computer number or if they have gone over
     function check (x) {
         if (x === computerNumber) {
             $("#winOrLose").text("You Win!");
@@ -59,6 +62,7 @@ $(document).ready(function () {
         }
     }
 
+    // Chooses random computer number for the game
     function randomComputerGuess () {
         var min = 19;
         var max = 120;
