@@ -38,7 +38,7 @@ $(document).ready(function () {
     // function resets the value of images
     function reset () {
         for (i = 0; i < imageArray.length; i++) {
-            randomNumber = Math.floor((Math.random()*11) + 1);
+            randomNumber = Math.floor((Math.random()*12) + 1);
             $(".weaponImage"+[i]).attr("weaponValueNum", randomNumber);
         }
         userScore = 0;
