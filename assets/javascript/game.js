@@ -13,7 +13,7 @@ $(document).ready(function () {
         imageWeapon = $("<img>");
         imageWeapon.addClass("weapon-image img-thumbnail");
         imageWeapon.addClass("weaponImage" + [i]);
-        randomNumber = Math.floor((Math.random()*11) + 1);
+        randomNumber = Math.floor((Math.random()*12) + 1);
         imageWeapon.attr({"src":imageArray[i], "weaponValueNum":randomNumber, height: "190px", width: "190px" });
         $(".weapons"+[i]).append(imageWeapon);
     }
